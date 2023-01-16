@@ -6,8 +6,9 @@ import React, { useState } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 const Home: React.FC = () => {
+
   interface IWeather {
-    main: string
+    [key: string]: any;
   }
 
   const [query, setQuery] = useState<string>('');
@@ -54,7 +55,7 @@ const Home: React.FC = () => {
               placeholder="Search..."
               onChange={e => setQuery(e.target.value)}
               value={query}
-              onKeyPress={search}
+              onKeyDown={search}
             />
           </div>
           {(typeof weather.main != "undefined") ? (
